@@ -56,7 +56,7 @@ void Game::GameEnd(bool isVin, bool mosquitoSuicide)
 		}
 		timeManager.stopTime();
 		menu.sound.playSoundEffect(1);
-		cout << "Вы не справились с управлением и лягушка утанула...\nКол-во ходов " << player.stepsCount << endl;
+		cout << "Вы не справились с управлением и лягушка утонула...\nКол-во ходов " << player.stepsCount << endl;
 	}
 	cout << "\nнажмите Enter, чтобы продолжить";
 
