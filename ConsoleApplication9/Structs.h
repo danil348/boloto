@@ -71,7 +71,7 @@ public:
     int runeLvl = 1;
     int maxRuneLvl = 5;
 
-    int chanceToCreateRune = 5; // 5%
+    int chanceToCreateRune = 5;
     int maxChanceToCreateRune = 20;
 
     int runeCount = 1;
@@ -108,7 +108,7 @@ public:
 
 struct FontCases
 {
-    //fontSize, offsetX, offsetY, width, heigth, fontInfo.dwFontSize.Y
+    //fontSize, offsetX, offsetY, width, heigth
     int font[7][6] = {
         {16, 6, 17, 24, 16},
         {18, 8, 19, 24, 18},

@@ -15,7 +15,7 @@
  "maxRuneCount": 5,
  "maxRuneLvl": 5,
  "mosquitoCount": 1,
- "mosquitoCountLife": 1,
+ "mosquitoCountLife": 0,
  "mosquitoCurrentStep": 1,
  "mosquitoIntellect": false,
  "playerCurrentStep": 5,
@@ -23,5 +23,5 @@
  "runeCount": 1,
  "runeIsActive": false,
  "runeLvl": 1,
- "score": 0
+ "score": 1
 }
