@@ -8,7 +8,6 @@ using namespace std;
 
 int SDL_main(int argc, char* argv[])
 {
-    //SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     srand(time(0)); 
 
@@ -18,13 +17,8 @@ int SDL_main(int argc, char* argv[])
 
     while (game.running())
     {
-        // отрисовка карты, персножей, интерфейса
         game.update();
-
-        // задержка для предотвращения повторного нажатия
         Sleep(50);
-
-        // проверка действий игрока, которые включают отрисовку (update)
         game.refreshUpdate();
     }
     return 0;

@@ -19,23 +19,19 @@ using namespace std;
 class Menu
 {
 public:
+	Sound sound;
 	Settings settings;
 
 	void init();
 	void draw();
-
 	int getkey();
 	void update(int menuIndex);
 	bool runnig();
 	void drawGameRules(int menuIndex);
-
 	void settingsDrow();
 	void pumpDrow();
-
 	void ConsoleCursorVisible(bool show);
-
 	void changeRunning(bool value);
-
 	bool isEnd();
 
 private:
@@ -61,13 +57,10 @@ private:
 	string pumpName[PumpMenuSize] = { "длинна прыжка", "бонус к прыжку от рун", "время действия руны",
 		"шанс появления руны", "максимально рун на карте"};
 
-	Sound sound;
 	DataStorage storage;
 	MapElements mapElements;
 	CONSOLE_SCREEN_BUFFER_INFO consoleInfo;
 	CONSOLE_CURSOR_INFO structCursorInfo;
-	//CONSOLE_FONT_INFOEX fontInfo;
-	// Получаем дескриптор консоли
 	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE); 
 
 };

@@ -1,13 +1,13 @@
 #include "Menu.h"
 
 
-void Menu::init() {
-	//ввести имя
-
+void Menu::init() { 
 	system("cls");
 	SetConsoleTitle(L"Болото");
 	ConsoleCursorVisible(false);
 	sound.addSoundEffect("switch.wav");
+	sound.addSoundEffect("water.wav");
+	sound.addSoundEffect("slap.wav");
 }
 
 void Menu::draw()
@@ -329,60 +329,35 @@ void Menu::drawGameRules(int menuIndex)
 		cout << "Перед началом игры, игрок выбирает размеры поля. Он вводит их вручную\n";
 		cout << "После ввода размеров поля перед игроком появляется карта\n";
 		cout << "Игра заканчивается, когда лягушка съест всех комаров,\nили игрок отправит лягушку на поле с водой\n";
-		cout << "Карта состоит из четырёх полей\n";
 
-		SetConsoleOutputCP(437);
-		cout << mapElements.Elements[9] << mapElements.Elements[5] << mapElements.Elements[5] << mapElements.Elements[5] << mapElements.Elements[0] << endl;
-		cout << mapElements.Elements[10] << "   " << mapElements.Elements[10];
-		SetConsoleOutputCP(1251);
-		cout << "  -  вода\n";
-		SetConsoleOutputCP(437);
-		cout << mapElements.Elements[1] << mapElements.Elements[5] << mapElements.Elements[5] << mapElements.Elements[5] << mapElements.Elements[8] << endl;
-		SetConsoleOutputCP(1251);
-		cout << "Так как лягушка родилась особенной, она не умеет плавать, поэтому, при прыжке\nна клетку с водой, она утонет\n";
-		SetConsoleOutputCP(437);
-		
-		cout << mapElements.Elements[9] << mapElements.Elements[5] << mapElements.Elements[5] << mapElements.Elements[5] << mapElements.Elements[0] << endl;
-		cout << mapElements.Elements[10] << mapElements.Elements[14] << mapElements.Elements[14] << mapElements.Elements[14] << mapElements.Elements[10];
-		SetConsoleOutputCP(1251);
-		cout << "  -  горка\n";
-		SetConsoleOutputCP(437);
-		cout << mapElements.Elements[1] << mapElements.Elements[5] << mapElements.Elements[5] << mapElements.Elements[5] << mapElements.Elements[8] << endl;
-		SetConsoleOutputCP(1251);
-		cout << "Лягушка может передвигаться только по горкам\n";
-		SetConsoleOutputCP(437);
+		cout << "===";
+		cout << "  -  комар\n\n";
 
-		cout << mapElements.Elements[9] << mapElements.Elements[5] << mapElements.Elements[5] << mapElements.Elements[5] << mapElements.Elements[0] << endl;
-		cout << mapElements.Elements[10] << "==" << mapElements.Elements[14] << mapElements.Elements[10];
-		SetConsoleOutputCP(1251);
-		cout << "  -  горка, над которой летает комар\n";
-		SetConsoleOutputCP(437);
-		cout << mapElements.Elements[1] << mapElements.Elements[5] << mapElements.Elements[5] << mapElements.Elements[5] << mapElements.Elements[8] << endl;
-		SetConsoleOutputCP(1251);
-		cout << "Сев на эту плитку, лягушка не только останется жива, но и съест комара\n";
-		SetConsoleOutputCP(437);
+		cout << "kva";
+		cout << "  -  комар\n\n";
 
-		cout << mapElements.Elements[9] << mapElements.Elements[5] << mapElements.Elements[5] << mapElements.Elements[5] << mapElements.Elements[0] << endl;
-		cout << mapElements.Elements[10] << mapElements.Elements[14] << mapElements.Elements[13] << mapElements.Elements[14] << mapElements.Elements[10];
-		SetConsoleOutputCP(1251);
-		cout << "  -  руна\n";
-		SetConsoleOutputCP(437);
-		cout << mapElements.Elements[1] << mapElements.Elements[5] << mapElements.Elements[5] << mapElements.Elements[5] << mapElements.Elements[8] << endl;
-		SetConsoleOutputCP(1251);
-		cout << "Сев на эту плитку, лягушка получит бонус к прыжку, в соответсвии с прокачкой руны\n";
-		SetConsoleOutputCP(437);
+		SetConsoleTextAttribute(hStdOut, (WORD)((9 << 4) | 14));
+		cout << "   ";
+		SetConsoleTextAttribute(hStdOut, (WORD)((0 << 4) | 7));
+		cout << "  -  вода\n\n";
 
-		cout << mapElements.Elements[9] << mapElements.Elements[5] << mapElements.Elements[5] << mapElements.Elements[5] << mapElements.Elements[0] << endl;
-		cout << mapElements.Elements[10] << "=" << mapElements.Elements[13] << mapElements.Elements[14] << mapElements.Elements[10];
-		SetConsoleOutputCP(1251);
-		cout << "  - плитка с руной и комаром\n";
+		SetConsoleTextAttribute(hStdOut, (WORD)((10 << 4) | 14));
+		cout << "   ";
+		SetConsoleTextAttribute(hStdOut, (WORD)((0 << 4) | 7));
+		cout << "  -  горка\n\n";
+
+		SetConsoleTextAttribute(hStdOut, (WORD)((10 << 4) | 14));
+		cout << "\x1b[31m===\x1b[0m";
+		SetConsoleTextAttribute(hStdOut, (WORD)((0 << 4) | 7));
+		cout << "  -  горка с комаром\n\n";
+
+		SetConsoleTextAttribute(hStdOut, (WORD)((10 << 4) | 14));
 		SetConsoleOutputCP(437);
-		cout << mapElements.Elements[1] << mapElements.Elements[5] << mapElements.Elements[5] << mapElements.Elements[5] << mapElements.Elements[8] << endl;
+		cout << "\x1b[31m==" << mapElements.Elements[13] << "\x1b[0m";
 		SetConsoleOutputCP(1251);
-		cout << "Сев на эту плитку, лягушка сорвёт джекпот. Она получит бонус к прыжку,\nв соответсвии с прокачкой руны, съест комара и остнется жива\n";
-		SetConsoleOutputCP(437);
-		
-		SetConsoleOutputCP(1251);
+		SetConsoleTextAttribute(hStdOut, (WORD)((0 << 4) | 7));
+		cout << "  -  горка с комаром и руной\n\n";
+
 		cout << endl << "Нажмите Enter, чтобы продолжить";
 	}
 }
@@ -465,7 +440,7 @@ void Menu::pumpDrow()
 void Menu::ConsoleCursorVisible(bool show)
 {
 	GetConsoleCursorInfo(hStdOut, &structCursorInfo);
-	structCursorInfo.bVisible = show; // изменяем видимость курсора
+	structCursorInfo.bVisible = show; 
 	SetConsoleCursorInfo(hStdOut, &structCursorInfo);
 }
 
@@ -477,22 +452,4 @@ void Menu::changeRunning(bool value)
 bool Menu::isEnd()
 {
 	return end;
-}
-
-//void Menu::GoToXY(short x, short y)
-//{
-//	SetConsoleCursorPosition(hStdOut, { x, y });
-//}
-
-//void Menu::CenterString(string& s, const size_t& width)
-//{
-//	size_t leftBord = (consoleWidth - width) / 2.;
-//	while (true) 
-//	{
-//		cout << setw(leftBord) << "" << s.substr(0u, width) << endl;
-//		s.erase(s.begin(), s.begin() + (s.size() < width ? s.size() : width));
-//		if (s.empty() == true) {
-//			break;
-//		}
-//	}
-//}
+} 

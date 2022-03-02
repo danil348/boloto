@@ -122,11 +122,6 @@ void DataStorage::createFileJson(Settings settings)
             {"fonts" , settings.fonts},
             {"fontSizeCount" , settings.fontSizeCount},
             {"currentFontSize" , settings.currentFontSize},
-            /*{
-                "rekord", {
-                    {"_", {{"_","_"}}}
-                }
-            },*/
         };
         writer << JsonSetting.dump(4);
     }

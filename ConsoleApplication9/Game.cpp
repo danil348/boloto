@@ -4,7 +4,6 @@ using namespace std;
 
 void Game::init()
 {
-
 	updateFontSize();
 	storage.getSetting(menu.settings);
 
@@ -12,7 +11,6 @@ void Game::init()
 	fontInfo.dwFontSize.Y = fontCases.font[menu.settings.fontSizeCount][0];
 
 	SetConsoleDisplayMode(GetStdHandle(STD_OUTPUT_HANDLE), CONSOLE_FULLSCREEN_MODE, &coord);
-
 	SetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE), FALSE, &fontInfo);
 
 	menu.init();
@@ -57,11 +55,11 @@ void Game::GameEnd(bool isVin, bool mosquitoSuicide)
 			menu.settings.score--;
 		}
 		timeManager.stopTime();
+		menu.sound.playSoundEffect(1);
 		cout << "Вы не справились с управлением и лягушка утанула...\nКол-во ходов " << player.stepsCount << endl;
 	}
 	cout << "\nнажмите Enter, чтобы продолжить";
 
-	// очищаем от нажатых кнопок во время слипа
 	while (_kbhit()) { 
 		_getch();
 	}
@@ -81,7 +79,6 @@ void Game::GameEnd(bool isVin, bool mosquitoSuicide)
 				menu.draw();
 				menu.update(0);
 			}
-			// если в меню нажали на первый пункт меню
 			if (menu.getkey() == 0 && menu.isEnd() == false) {
 				gameRefresh();
 				update();
@@ -148,11 +145,11 @@ void Game::updateFontSize()
 	int x;
 	int y; 
 	RECT rc;
-	fontInfo.dwFontSize.Y = menu.settings.fontSize[menu.settings.fontSizeCount][0]; // Размер (в логических единицах)
+	fontInfo.dwFontSize.Y = menu.settings.fontSize[menu.settings.fontSizeCount][0];
 
 	SetCurrentConsoleFontEx(hConsole, TRUE, &fontInfo);
 
-	GetCurrentConsoleFontEx(hConsole, TRUE, &fontInfo); // Получить текущий шрифт
+	GetCurrentConsoleFontEx(hConsole, TRUE, &fontInfo);
 	HWND hWnd = GetConsoleWindow();
 	
 	GetClientRect(hWnd, &rc);
@@ -305,10 +302,9 @@ bool Game::playerUpdate(int x, int y)
 					if (menu.settings.mosquitoCountLife == 0) {
 						GameEnd(true, false);
 					}
-					// если игрок перелетел объект по горизонтали или вертикали
 					player.updatePos();
 
-					//------------ реализация рун
+					// реализация рун
 					if (menu.settings.currentRuneState == 1 && menu.settings.runeIsActive == true) {
 						menu.settings.playerCurrentStep -= menu.settings.runeBoost * menu.settings.currentRuneCount;
 						menu.settings.currentRuneCount = 0;
@@ -326,7 +322,7 @@ bool Game::playerUpdate(int x, int y)
 						menu.settings.runeIsActive = true;
 						menu.settings.playerCurrentStep += menu.settings.runeBoost;
 					}
-					//------------ реализация рун
+					menu.sound.playSoundEffect(2);
 					return true;
 				}
 				// если игрок ходит по вертикали
@@ -344,7 +340,7 @@ bool Game::playerUpdate(int x, int y)
 					}
 					player.updatePos();
 
-					//------------- реализация рун
+					// реализация рун
 					if (menu.settings.currentRuneState == 1 && menu.settings.runeIsActive == true) {
 						menu.settings.playerCurrentStep -= menu.settings.runeBoost * menu.settings.currentRuneCount;
 						menu.settings.currentRuneCount = 0;
@@ -362,7 +358,7 @@ bool Game::playerUpdate(int x, int y)
 						menu.settings.runeIsActive = true;
 						menu.settings.playerCurrentStep += menu.settings.runeBoost;
 					}
-					//------------ реализация рун
+					menu.sound.playSoundEffect(2);
 					return true;
 				}
 			}

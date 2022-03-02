@@ -15,7 +15,6 @@ public:
 	void stopTime();
 	string getGameTime();
 private:
-
 	SYSTEMTIME tmpTime, Time;
 };
 
