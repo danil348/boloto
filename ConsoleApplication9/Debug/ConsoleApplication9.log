@@ -1,9 +1,12 @@
-﻿  DataStorage.cpp
+﻿  main.cpp
+C:\Users\elise\Desktop\boloto\ConsoleApplication9\main.cpp(12,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  DataStorage.cpp
   Game.cpp
   GameObgects.cpp
   Map.cpp
   Menu.cpp
-  main.cpp
-C:\Users\elise\source\repos\ConsoleApplication9\ConsoleApplication9\main.cpp(12,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  Sound.cpp
+  TimeManager.cpp
   Создание кода...
-  ConsoleApplication9.vcxproj -> C:\Users\elise\source\repos\ConsoleApplication9\Debug\ConsoleApplication9.exe
+  LINK : не найден или не выполнена сборка C:\Users\elise\Desktop\boloto\Debug\ConsoleApplication9.exe при последней инкрементной компоновке; выполняется полная компоновка
+  ConsoleApplication9.vcxproj -> C:\Users\elise\Desktop\boloto\Debug\ConsoleApplication9.exe

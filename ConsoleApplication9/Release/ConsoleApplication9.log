@@ -1,15 +1,7 @@
-﻿  main.cpp
-C:\Users\elise\Desktop\boloto\ConsoleApplication9\main.cpp(12,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-  DataStorage.cpp
-  Game.cpp
-  GameObgects.cpp
-  Map.cpp
-  Menu.cpp
-  Sound.cpp
-  TimeManager.cpp
+﻿  Menu.cpp
   Создание кода
-  1479 of 1497 functions (98.8%) were compiled, the rest were copied from previous compilation.
+  2 of 1497 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    2 functions had inline decision re-evaluated but remain unchanged
+    7 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено
   ConsoleApplication9.vcxproj -> C:\Users\elise\Desktop\boloto\Release\ConsoleApplication9.exe

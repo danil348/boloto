@@ -335,7 +335,7 @@ void Menu::drawGameRules(int menuIndex)
 		cout << "  -  комар\n\n";
 
 		cout << "kva";
-		cout << "  -  комар\n\n";
+		cout << "  -  л€гушка\n\n";
 
 		SetConsoleTextAttribute(hStdOut, (WORD)((9 << 4) | 14));
 		cout << "   ";
